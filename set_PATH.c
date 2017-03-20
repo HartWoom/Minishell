@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:30:21 2017 HartWoom
-** Last update Mon Mar 20 11:42:45 2017 HartWoom
+** Last update Mon Mar 20 14:58:38 2017 HartWoom
 */
 
 #include "my.h"
@@ -71,8 +71,11 @@ char    **set_PATH(char **env)
 {
   int   i = 0;
 
-  while (env[++i] != NULL)
-    if (str_finder(env[i], "PATH") == 0)
-      return (cut_PATH(env[i]));
+  while (env[i] != NULL)
+    {
+      if (str_finder(env[i], "PATH") == 0)
+	return (cut_PATH(env[i]));
+      i++;
+    }
   return (NULL);
 }
