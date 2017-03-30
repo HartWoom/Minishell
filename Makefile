@@ -5,14 +5,25 @@
 ## Login   <antoine.hartwig@epitech.eu>
 ## 
 ## Started on  Mon Mar 20 10:20:30 2017 HartWoom
-## Last update Mon Mar 20 15:01:55 2017 HartWoom
+## Last update Thu Mar 30 10:39:16 2017 HartWoom
 ##
 
-SRC	=	main.c		\
-		set_struct.c	\
-		set_PATH.c	\
-		set_HOME.c	\
-		str_finder.c
+SRC	=	main.c				\
+		usefull/my_strlen_to.c		\
+		usefull/my_put_exit.c		\
+		usefull/my_strcp.c		\
+		init/set_struct.c		\
+		init/set_PATH.c			\
+		init/set_HOME.c			\
+		init/set_envp.c			\
+		init/set_env.c			\
+		str_finder.c			\
+		pre_check.c			\
+		cut_entry.c			\
+		my_builtins/my_builtins.c	\
+		my_builtins/my_change_dir.c	\
+		my_builtins/my_display_env.c	\
+		execute/execute_entry.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -20,9 +31,9 @@ CC	=	gcc
 
 NAME	=	mysh
 
-CFLAGS	=	-Iinclude -W -Wall -Wextra -pedantic
+CFLAGS	=	-Iinclude -W -Wall -Wextra -pedantic -g3
 
-LFLAGS	=	-Llib -lmy -lprintf
+LFLAGS	=	-Llib -lmy -lprintf -lgnl
 
 RM	=	rm -f
 

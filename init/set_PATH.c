@@ -5,21 +5,10 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:30:21 2017 HartWoom
-** Last update Mon Mar 20 14:58:38 2017 HartWoom
+** Last update Fri Mar 24 09:57:27 2017 HartWoom
 */
 
-#include "my.h"
-
-int	my_strlen_to_point(char *str)
-{
-  static int    i = 0;
-
-  while (str[i] != '\0' && str[i] != ':')
-    {
-      i++;
-    }
-  return (i - 1);
-}
+#include "init.h"
 
 char		*my_strcp_PATH(char *str, char *dest)
 {

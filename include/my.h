@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:06:39 2017 HartWoom
-** Last update Mon Mar 20 14:52:25 2017 HartWoom
+** Last update Fri Mar 24 10:15:19 2017 HartWoom
 */
 
 #ifndef MY_H_
@@ -13,22 +13,17 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "struct.h"
 
-typedef struct s_shell
-{
-  char	**PATH;
-  char	*HOME;
-}	t_shell;
+# ifndef READ_SIZE
+#  define READ_SIZE (21)
+# endif /* !READ_SIZE */
 
-void	my_putchar(char);
-void	my_putstr(char *);
-void	my_put_nbr(int);
-int	my_printf(char *, ...);
-int	my_strlen(char *);
-int	my_getnbr(char *);
 void	set_struct(t_shell *, char **);
-char	**set_PATH(char **);
-char	*set_HOME(char **);
-int	str_finder(char *, char *);
+char	*get_next_line(const int);
+int	my_strlen_to_space(char *);
+char	**cut_entry(char *);
+void	pre_check(t_shell *, char *);
+int	my_builtins(t_shell *, char **);
 
 #endif

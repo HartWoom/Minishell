@@ -5,10 +5,11 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 14:49:16 2017 HartWoom
-** Last update Mon Mar 20 14:58:11 2017 HartWoom
+** Last update Fri Mar 24 09:56:21 2017 HartWoom
 */
 
-#include "my.h"
+#include "init.h"
+#include "usefull.h"
 
 char	*cut_HOME(char *str)
 {
