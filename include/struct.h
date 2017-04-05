@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 17:04:13 2017 HartWoom
-** Last update Thu Mar 30 10:08:57 2017 HartWoom
+** Last update Wed Apr  5 18:16:37 2017 HartWoom
 */
 
 #ifndef STRUCT_H
@@ -15,8 +15,8 @@ typedef struct s_shell
 {
   char  **PATH;
   char  *HOME;
-  char	**envp;
   char	**env;
+  int	total_env;
 }       t_shell;
 
 #endif

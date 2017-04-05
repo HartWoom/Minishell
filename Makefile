@@ -5,24 +5,26 @@
 ## Login   <antoine.hartwig@epitech.eu>
 ## 
 ## Started on  Mon Mar 20 10:20:30 2017 HartWoom
-## Last update Thu Mar 30 10:39:16 2017 HartWoom
+## Last update Wed Apr  5 18:18:13 2017 HartWoom
 ##
 
-SRC	=	main.c				\
-		usefull/my_strlen_to.c		\
-		usefull/my_put_exit.c		\
-		usefull/my_strcp.c		\
-		init/set_struct.c		\
-		init/set_PATH.c			\
-		init/set_HOME.c			\
-		init/set_envp.c			\
-		init/set_env.c			\
-		str_finder.c			\
-		pre_check.c			\
-		cut_entry.c			\
-		my_builtins/my_builtins.c	\
-		my_builtins/my_change_dir.c	\
-		my_builtins/my_display_env.c	\
+SRC	=	main.c					\
+		pre_check.c				\
+		cut_entry.c				\
+		usefull/my_strlen_to.c			\
+		usefull/my_put_exit.c			\
+		usefull/my_strcp.c			\
+		usefull/str_finder.c			\
+		init/set_struct.c			\
+		init/set_PATH.c				\
+		init/set_HOME.c				\
+		init/set_env.c				\
+		my_builtins/my_builtins.c		\
+		my_builtins/my_change_dir.c		\
+		my_builtins/my_display_env.c		\
+		my_builtins/my_setenv.c			\
+		my_builtins/my_unsetenv/my_unsetenv.c	\
+		my_builtins/my_unsetenv/remove_one.c	\
 		execute/execute_entry.c
 
 OBJ	=	$(SRC:.c=.o)

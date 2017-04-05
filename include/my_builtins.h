@@ -5,19 +5,22 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 16:53:28 2017 HartWoom
-** Last update Fri Mar 24 10:24:23 2017 HartWoom
+** Last update Wed Apr  5 18:51:11 2017 HartWoom
 */
 
 #ifndef MY_BUILTINS_H
 # define MY_BUILTINS_H
 
 #include <unistd.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "struct.h"
 
 int	my_change_dir(t_shell *, char **);
-void	my_display_env(t_shell *);
+int	my_display_env(t_shell *);
+int	my_setenv(t_shell *, char **);
+int	my_unsetenv(t_shell *, char **);
 
 #endif

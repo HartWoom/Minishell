@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 30 10:02:27 2017 HartWoom
-** Last update Thu Mar 30 10:34:05 2017 HartWoom
+** Last update Wed Apr  5 17:55:03 2017 HartWoom
 */
 
 #include "struct.h"
@@ -16,14 +16,15 @@ void	execute_entry(t_shell *shell, char **full_line)
   char	*save;
   int	i = 0;
 
-  execve(full_line[0], full_line, shell->envp);
+  execve(full_line[0], full_line, shell->env);
   save = my_strcp(full_line[0]);
   while (shell->PATH[i] != NULL)
     {
       full_line[0] = my_strcat(shell->PATH[i], full_line[0]);
-      execve(full_line[0], full_line, shell->envp);
+      execve(full_line[0], full_line, shell->env);
       full_line[0] = my_strcp(save);
       i++;
     }
-  exit(0);
+  my_printf("%s: Command not found.\n", save);
+  exit(1);
 }

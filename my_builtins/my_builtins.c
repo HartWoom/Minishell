@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 18:53:26 2017 HartWoom
-** Last update Thu Mar 30 09:52:54 2017 HartWoom
+** Last update Mon Apr  3 13:24:35 2017 HartWoom
 */
 
 #include "my.h"
@@ -19,6 +19,10 @@ int	my_builtins(t_shell *shell, char **full_line)
   else if (my_str_cmp(full_line[0], "cd") == 0)
     return (my_change_dir(shell, full_line));
   else if (my_str_cmp(full_line[0], "env") == 0 && full_line[1] == NULL)
-    my_display_env(shell);
+    return (my_display_env(shell));
+  else if (my_str_cmp(full_line[0], "setenv") == 0)
+    return (my_setenv(shell, full_line));
+  else if (my_str_cmp(full_line[0], "unsetenv") == 0)
+    return (my_unsetenv(shell, full_line));
   return (0);
 }

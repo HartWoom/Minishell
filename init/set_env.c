@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Fri Mar 24 09:37:24 2017 HartWoom
-** Last update Wed Mar 29 09:40:40 2017 HartWoom
+** Last update Mon Apr  3 12:43:13 2017 HartWoom
 */
 
 #include "init.h"
@@ -25,5 +25,6 @@ void	set_env(t_shell *shell, char **env)
       shell->env[i] = env[i];
       i++;
     }
+  shell->total_env = i;
   shell->env[i] = NULL;
 }

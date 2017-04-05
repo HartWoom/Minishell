@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 30 10:27:01 2017 HartWoom
-** Last update Thu Mar 30 10:40:31 2017 HartWoom
+** Last update Thu Mar 30 10:48:31 2017 HartWoom
 */
 
 #ifndef EXECUTE_H_
@@ -18,5 +18,6 @@
 
 char	*my_strcp(char *);
 char	*my_strcat(char *, char *);
+int	my_printf(char *, ...);
 
 #endif
