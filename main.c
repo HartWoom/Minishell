@@ -5,23 +5,34 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:05:16 2017 HartWoom
-** Last update Wed Apr  5 17:53:55 2017 HartWoom
+** Last update Thu Apr  6 11:19:20 2017 HartWoom
 */
 
 #include "my.h"
 #include "struct.h"
 #include "usefull.h"
 
-void	in_a_tty(t_shell *shell)
+void	process_loop(t_shell *shell, int tty)
 {
   char	*str;
 
-  my_printf("$$> ");
-  while ((str = get_next_line(0)))
+  if (tty == 0)
     {
-      pre_check(shell, str);
       my_printf("$$> ");
-      free(str);
+      while ((str = get_next_line(0)))
+	{
+	  pre_check(shell, str);
+	  my_printf("$$> ");
+	  free(str);
+	}
+    }
+  else
+    {
+      while ((str = get_next_line(0)) != NULL)
+	{
+	  pre_check(shell, str);
+	  free(str);
+	}
     }
 }
 
@@ -35,8 +46,9 @@ int		main(int ac, char **av, char **env)
   if (!(shell = malloc(sizeof(t_shell))))
     return (84);
   set_struct(shell, env);
-  /* if (isatty(0) == 0) */
-  /*   not_a_tty(shell); */
-  in_a_tty(shell);
+  if (isatty(0) == 0)
+    process_loop(shell, 1);
+  else
+    process_loop(shell, 0);
   return (0);
 }
