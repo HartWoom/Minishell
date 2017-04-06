@@ -5,9 +5,10 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 15:38:23 2017 HartWoom
-** Last update Wed Apr  5 18:47:21 2017 HartWoom
+** Last update Thu Apr  6 19:32:00 2017 HartWoom
 */
 
+#include <unistd.h>
 #include "my_builtins.h"
 #include "struct.h"
 #include "usefull.h"
@@ -35,29 +36,70 @@ char	*replace_tild(t_shell *shell, char **full_line)
   return (save);
 }
 
-int	my_change_dir(t_shell *shell, char **full_line)
+int	display_correct_error(char **full_line)
 {
   int	fd;
-  int	i = 0;
 
+  if ((fd = open(full_line[1], O_RDONLY)) != -1)
+    my_printf("%s: Not a directory.\n", full_line[1]);
+  else
+    my_printf("%s: No such file or directory.\n", full_line[1]);
+  if (fd != -1)
+    close(fd);
+  return (1);
+}
+
+void	replace_oldpwd(t_shell *shell, char *old)
+{
+  char	**pwd;
+
+  if (!(pwd = malloc(sizeof(char *) * 4)))
+    exit(84);
+  if (!(pwd[2] = malloc(sizeof(char) * my_strlen(old))))
+    exit(84);
+  pwd[0] = "setenv";
+  pwd[1] = "OLDPWD";
+  pwd[2] = old;
+  pwd[3] = NULL;
+  my_setenv(shell, pwd);
+  free(pwd);
+  if (!(pwd = malloc(sizeof(char *) * 4)))
+    exit(84);
+  if (!(pwd[2] = malloc(sizeof(char) * 1024)))
+    exit(84);
+  pwd[0] = "setenv";
+  pwd[1] = "PWD";
+  pwd[2] = getcwd(pwd[2], 1024);
+  pwd[3] = NULL;
+  my_setenv(shell, pwd);
+  free(pwd);
+}
+
+int	my_change_dir(t_shell *shell, char **full_line)
+{
+  int	i = 0;
+  char	*tmp;
+  char	*old;
+
+  old = malloc(sizeof(char) * 1024);
+  old[1023] = '\0';
+  getcwd(old, 1024);
+  tmp = malloc(sizeof(char) * 1024);
+  tmp[1023] = '\0';
   while (full_line[i] != NULL)
     i++;
   if (i == 1)
     return (chdir(shell->HOME) + 1);
   else if (i == 2)
     {
+      /* if (full_line[1][0] == '-') */
+      /* 	return (return_to_old); */
       if (full_line[1][0] == '~')
 	full_line[1] = replace_tild(shell, full_line);
       if (chdir(full_line[1]) == -1)
-	{
-	  if ((fd = open(full_line[1], O_RDONLY)) != -1)
-	    my_printf("%s: Not a directory.\n", full_line[1]);
-	  else
-	    my_printf("%s: No such file or directory.\n", full_line[1]);
-	  if (fd != -1)
-	    close(fd);
-	  return (1);
-	}
+	display_correct_error(full_line);
     }
+  if (my_str_cmp(old, getcwd(tmp, 1024)) != 0)
+    replace_oldpwd(shell, old);
   return (1);
 }

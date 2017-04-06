@@ -5,7 +5,7 @@
 ## Login   <antoine.hartwig@epitech.eu>
 ## 
 ## Started on  Mon Mar 20 10:20:30 2017 HartWoom
-## Last update Wed Apr  5 18:18:13 2017 HartWoom
+## Last update Thu Apr  6 20:11:20 2017 HartWoom
 ##
 
 SRC	=	main.c					\
@@ -20,6 +20,7 @@ SRC	=	main.c					\
 		init/set_HOME.c				\
 		init/set_env.c				\
 		my_builtins/my_builtins.c		\
+		my_builtins/my_exit.c			\
 		my_builtins/my_change_dir.c		\
 		my_builtins/my_display_env.c		\
 		my_builtins/my_setenv.c			\
