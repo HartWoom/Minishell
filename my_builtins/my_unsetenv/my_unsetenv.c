@@ -5,10 +5,16 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Apr  3 13:18:27 2017 HartWoom
-** Last update Fri Apr  7 11:31:57 2017 HartWoom
+** Last update Fri Apr  7 18:40:32 2017 HartWoom
 */
 
 #include "unsetenv.h"
+
+void	unsetenv_error(t_shell *shell)
+{
+  my_printf("unsetenv: Too few arguments.");
+  shell->exit_status = 1;
+}
 
 int	my_unsetenv(t_shell *shell, char **full_line)
 {
@@ -19,7 +25,7 @@ int	my_unsetenv(t_shell *shell, char **full_line)
   while (full_line[i] != NULL)
     i++;
   if (i == 1)
-    my_printf("unsetenv: Too few arguments.");
+    unsetenv_error(shell);
   while (full_line[k] != NULL)
     {
       while (shell->env[j] != NULL)
@@ -35,6 +41,6 @@ int	my_unsetenv(t_shell *shell, char **full_line)
       k++;
       j = 0;
     }
+  shell->exit_status = 0;
   return (1);
 }
-

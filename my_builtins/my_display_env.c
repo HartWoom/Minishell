@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Fri Mar 24 09:31:17 2017 HartWoom
-** Last update Thu Mar 30 10:56:20 2017 HartWoom
+** Last update Fri Apr  7 18:22:28 2017 HartWoom
 */
 
 #include "struct.h"
@@ -21,5 +21,6 @@ int	my_display_env(t_shell *shell)
       my_printf("%s\n", shell->env[i]);
       i++;
     }
+  shell->exit_status = 0;
   return (1);
 }
