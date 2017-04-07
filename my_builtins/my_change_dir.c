@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 15:38:23 2017 HartWoom
-** Last update Thu Apr  6 19:32:00 2017 HartWoom
+** Last update Fri Apr  7 10:05:50 2017 HartWoom
 */
 
 #include <unistd.h>
@@ -75,6 +75,23 @@ void	replace_oldpwd(t_shell *shell, char *old)
   free(pwd);
 }
 
+void	return_to_old_dir(t_shell *shell, char **full_line)
+{
+  int	i = 0;
+
+  if (my_strlen(full_line[1]) > 1)
+    my_printf("Usage: cd [-plvn][-|<dir>].\n");
+  else
+    {
+      while (str_finder(shell->env[i], "OLDPWD") != 0 && shell->env[i] != NULL)
+	i++;
+      if (shell->env[i] == NULL)
+	my_printf(": No such file or directory.\n");
+      else
+	chdir(shell->env[i] + 7);
+    }
+}
+
 int	my_change_dir(t_shell *shell, char **full_line)
 {
   int	i = 0;
@@ -89,14 +106,14 @@ int	my_change_dir(t_shell *shell, char **full_line)
   while (full_line[i] != NULL)
     i++;
   if (i == 1)
-    return (chdir(shell->HOME) + 1);
+    chdir(shell->HOME);
   else if (i == 2)
     {
-      /* if (full_line[1][0] == '-') */
-      /* 	return (return_to_old); */
-      if (full_line[1][0] == '~')
+      if (full_line[1][0] == '-')
+      	return_to_old_dir(shell, full_line);
+      else if (full_line[1][0] == '~')
 	full_line[1] = replace_tild(shell, full_line);
-      if (chdir(full_line[1]) == -1)
+      if (chdir(full_line[1]) == -1 && full_line[1][0] != '-')
 	display_correct_error(full_line);
     }
   if (my_str_cmp(old, getcwd(tmp, 1024)) != 0)

@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 17:09:55 2017 HartWoom
-** Last update Thu Mar 23 17:11:45 2017 HartWoom
+** Last update Thu Apr  6 23:47:32 2017 HartWoom
 */
 
 #ifndef USEFULL_H
@@ -19,5 +19,7 @@ int     my_printf(char *, ...);
 int     my_strlen(char *);
 int     my_getnbr(char *);
 int     my_str_cmp(char *, char *);
+char	*my_strcat(char *, char *);
+char	*my_strcp(char *);
 
 #endif

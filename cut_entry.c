@@ -5,12 +5,12 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 15:32:43 2017 HartWoom
-** Last update Thu Apr  6 22:39:42 2017 HartWoom
+** Last update Fri Apr  7 09:52:33 2017 HartWoom
 */
 
 #include "my.h"
 
-int		little_epur(char *str)
+int	little_epur(char *str)
 {
   int	i = 0;
   int	k = 0;
@@ -35,9 +35,9 @@ char		*my_str_copy_entry(char *src, char *dest, int flag)
   if (flag == 0)
     i = 0;
   j = 0;
-  while (src[i] == ' ')
+  while (src[i] == ' ' || src[i] == '\t')
     i++;
-  while (src[i] != '\0' && src[i] != ' ')
+  while (src[i] != '\0' && src[i] != ' ' && src[i] != '\t')
     {
       dest[j] = src[i];
       i++;

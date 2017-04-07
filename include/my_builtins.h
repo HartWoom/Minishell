@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 16:53:28 2017 HartWoom
-** Last update Thu Apr  6 22:34:10 2017 HartWoom
+** Last update Fri Apr  7 09:54:16 2017 HartWoom
 */
 
 #ifndef MY_BUILTINS_H
@@ -23,5 +23,6 @@ int	my_change_dir(t_shell *, char **);
 int	my_display_env(t_shell *);
 int	my_setenv(t_shell *, char **);
 int	my_unsetenv(t_shell *, char **);
+int	str_finder(char *, char *);
 
 #endif

@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:06:39 2017 HartWoom
-** Last update Thu Apr  6 20:33:52 2017 HartWoom
+** Last update Fri Apr  7 09:53:48 2017 HartWoom
 */
 
 #ifndef MY_H_
