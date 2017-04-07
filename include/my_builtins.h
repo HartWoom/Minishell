@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 16:53:28 2017 HartWoom
-** Last update Fri Apr  7 09:54:16 2017 HartWoom
+** Last update Fri Apr  7 17:31:00 2017 HartWoom
 */
 
 #ifndef MY_BUILTINS_H
@@ -18,7 +18,7 @@
 #include <fcntl.h>
 #include "struct.h"
 
-int	my_exit(char **);
+int	my_exit(t_shell *, char **);
 int	my_change_dir(t_shell *, char **);
 int	my_display_env(t_shell *);
 int	my_setenv(t_shell *, char **);

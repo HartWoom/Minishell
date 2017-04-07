@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 15:38:23 2017 HartWoom
-** Last update Fri Apr  7 10:05:50 2017 HartWoom
+** Last update Fri Apr  7 16:14:08 2017 HartWoom
 */
 
 #include <unistd.h>
@@ -73,6 +73,7 @@ void	replace_oldpwd(t_shell *shell, char *old)
   pwd[3] = NULL;
   my_setenv(shell, pwd);
   free(pwd);
+  shell->exit_status = 0;
 }
 
 void	return_to_old_dir(t_shell *shell, char **full_line)
@@ -80,13 +81,19 @@ void	return_to_old_dir(t_shell *shell, char **full_line)
   int	i = 0;
 
   if (my_strlen(full_line[1]) > 1)
-    my_printf("Usage: cd [-plvn][-|<dir>].\n");
+    {
+      my_printf("Usage: cd [-plvn][-|<dir>].\n");
+      shell->exit_status = 1;
+    }
   else
     {
       while (str_finder(shell->env[i], "OLDPWD") != 0 && shell->env[i] != NULL)
 	i++;
       if (shell->env[i] == NULL)
-	my_printf(": No such file or directory.\n");
+	{
+	  my_printf(": No such file or directory.\n");
+	  shell->exit_status = 1;
+	}
       else
 	chdir(shell->env[i] + 7);
     }

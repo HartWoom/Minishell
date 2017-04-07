@@ -5,12 +5,24 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 18:03:28 2017 HartWoom
-** Last update Fri Apr  7 15:26:29 2017 HartWoom
+** Last update Fri Apr  7 15:31:49 2017 HartWoom
 */
 
 #include "pre_check.h"
 #include "usefull.h"
 #include "my.h"
+
+void	non_fork_part(t_shell *shell, int status)
+{
+  if (WIFSIGNALED(status) == 1)
+    {
+      my_printf("Segmentation fault (core dumped)\n");
+      if (WTERMSIG(status) == 11)
+	shell->exit_status = 139;
+    }
+  else if (WIFEXITED(status) == 1)
+    shell->exit_status = WEXITSTATUS(status);
+}
 
 int	pre_check(t_shell *shell, char *str)
 {
@@ -33,14 +45,7 @@ int	pre_check(t_shell *shell, char *str)
       else
 	{
 	  w = wait(&status);
-	  if (WIFSIGNALED(status) == 1)
-	    {
-	      my_printf("Segmentation fault (core dumped)\n");
-	      if (WTERMSIG(status) == 11)
-		shell->exit_status = 139;
-	    }
-	  else if (WIFEXITED(status) == 1)
-	    shell->exit_status = WEXITSTATUS(status);
+	  non_fork_part(shell, status);
 	}
       free(full_line);
     }
