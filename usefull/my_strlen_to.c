@@ -5,15 +5,17 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 17:17:23 2017 HartWoom
-** Last update Thu Mar 23 15:27:10 2017 HartWoom
+** Last update Fri Apr  7 11:09:35 2017 HartWoom
 */
 
 #include "my.h"
 
-int		my_strlen_to_space(char *str)
+int		my_strlen_to_space(char *str, int flag)
 {
   static int	i = 0;
 
+  if (flag == 0)
+    i = 0;
   while (str[i] == ' ')
     i++;
   while (str[i] != '\0' && str[i] != ' ')

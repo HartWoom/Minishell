@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Apr  3 13:18:27 2017 HartWoom
-** Last update Wed Apr  5 17:49:25 2017 HartWoom
+** Last update Fri Apr  7 11:30:17 2017 HartWoom
 */
 
 #include "unsetenv.h"
@@ -98,28 +98,26 @@ int	my_unsetenv(t_shell *shell, char **full_line)
 {
   int	i = 0;
   int	j = 0;
-  char	**save;
+  int	k = 1;
 
   while (full_line[i] != NULL)
     i++;
   if (i == 1)
     my_printf("unsetenv: Too few arguments.");
-  else if (i == 2)
+  while (full_line[k] != NULL)
     {
       while (shell->env[j] != NULL)
 	{
-	  if (my_str_cmp(shell->env[j], full_line[1]) == 0)
+	  if (str_finder(shell->env[j], full_line[k]) == 0)
 	    {
-	      remove_one(shell, full_line, j, i);
+	      remove_one(shell, j);
+	      shell->total_env--;
+	      break;
 	    }
+	  j++;
 	}
-      if (!(save = malloc(sizeof(char *) * (shell->total_env - (i - 1)))))
-	exit(84);
-      while (shell->env[j] != NULL)
-	{
-	  if (!(save = malloc(sizeof(char) * (my_strlen(shell->env[j] + 1)))))
-	    exit(84);
-	}
+      k++;
+      j = 0;
     }
   return (1);
 }

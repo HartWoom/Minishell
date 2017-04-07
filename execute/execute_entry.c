@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 30 10:02:27 2017 HartWoom
-** Last update Thu Apr  6 20:07:59 2017 HartWoom
+** Last update Fri Apr  7 10:45:35 2017 HartWoom
 */
 
 #include "struct.h"
@@ -23,14 +23,14 @@ void	execute_entry(t_shell *shell, char **full_line)
   save = my_strcp(full_line[0]);
   while (shell->PATH[i] != NULL)
     {
-      /* if (!(full_line[0] = malloc(sizeof(char) * (size + my_strlen(shell->PATH[i] + 1))))) */
-      /* 	exit(84); */
-      full_line[0] = my_strcat(shell->PATH[i], save);
-      execve(full_line[0], full_line, shell->env);
       free(full_line[0]);
-      if (!(full_line[0] = malloc(sizeof(char) * (size + 1))))
+      if (!(full_line[0] = malloc(sizeof(char) * (size + my_strlen(shell->PATH[i] + 1)))))
       	exit(84);
-      full_line[0] = my_strcp(save);
+      full_line[0] = my_strcp(my_strcat(shell->PATH[i], save));
+      execve(full_line[0], full_line, shell->env);
+      /* if (!(full_line[0] = malloc(sizeof(char) * (size + 1)))) */
+      /* 	exit(84); */
+      /* full_line[0] = my_strcp(save); */
       i++;
     }
   my_printf("%s: Command not found.\n", save);

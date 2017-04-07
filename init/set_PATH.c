@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:30:21 2017 HartWoom
-** Last update Fri Mar 24 09:57:27 2017 HartWoom
+** Last update Fri Apr  7 10:55:26 2017 HartWoom
 */
 
 #include "init.h"
@@ -29,6 +29,7 @@ char		*my_strcp_PATH(char *str, char *dest)
       j++;
     }
   dest[j] = '/';
+  dest[j + 1] = '\0';
   i++;
   return (dest);
 }
@@ -48,11 +49,12 @@ char	**cut_PATH(char *str)
   k = 0;
   while (k != i + 1)
     {
-      if (!(new[k] = malloc(sizeof(char) * (my_strlen_to_point(str) + 1))))
+      if (!(new[k] = malloc(sizeof(char) * (my_strlen_to_point(str) + 2))))
 	exit(84);
       new[k] = my_strcp_PATH(str, new[k]);
       k++;
     }
+  new[k] = '\0';
   return (new);
 }
 

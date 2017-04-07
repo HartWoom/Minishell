@@ -5,49 +5,52 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 17:40:46 2017 HartWoom
-** Last update Wed Apr  5 19:48:17 2017 HartWoom
+** Last update Fri Apr  7 10:33:00 2017 HartWoom
 */
 
 #include "unsetenv.h"
 #include "struct.h"
 
-/* void	remove_one_p2(t_shell *shell, char **save, int k) */
-/* { */
-/*   int	i = 0; */
-/*   int	j = 0; */
+void	remove_one_p2(t_shell *shell, char **save, int size)
+{
+  int	i = 0;
 
-/*   free(shell->env); */
-/*   if (!(shell->env = malloc(sizeof(char *) * (k - 1)))) */
-/*     exit(84); */
-/*   while (i != k - 1) */
-/*     { */
-      
-/*     } */
-/* } */
+  free(shell->env);
+  if (!(shell->env = malloc(sizeof(char *) * size)))
+    exit(84);
+  while (i != size - 1)
+    {
+      if (!(shell->env[i] = malloc(sizeof(char) * (my_strlen(save[i]) + 1))))
+	exit(84);
+      shell->env[i] = my_strcp(save[i]);
+      i++;
+    }
+  shell->env[i] = NULL;
+}
 
-void	remove_one(t_shell *shell, char **full_line, int k, int size)
+void	remove_one(t_shell *shell, int k)
 {
   char	**save;
   int	i = 0;
-  int	j = 0;
+  int	flag = 0;
+  int	size = 0;
 
-  (void) (full_line);
-  if (!(save = malloc(sizeof(char *) * size - 1)))
+  while (shell->env[size] != NULL)
+    size++;
+  if (!(save = malloc(sizeof(char *) * size)))
     exit(84);
   while (shell->env[i] != NULL)
     {
       if (i != k)
 	{
-	  if (!(save[i] = malloc(sizeof(char) * (my_strlen(shell->env[i] + 1)))))
+	  if (!(save[i - flag] = malloc(sizeof(char) * (my_strlen(shell->env[i] + 1)))))
 	    exit(84);
-	  while (shell->env[i][j] != '\0')
-	    {
-	      save[i][j] = shell->env[i][j];
-	      j++;
-	    }
+	  save[i - flag] = my_strcp(shell->env[i]);
 	}
+      else
+	flag += 1;
       i++;
-      j = 0;
     }
-  //  remove_one_p2(shell, save, k);
+  remove_one_p2(shell, save, size);
+  free(save);
 }

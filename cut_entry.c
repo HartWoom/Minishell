@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 15:32:43 2017 HartWoom
-** Last update Fri Apr  7 09:52:33 2017 HartWoom
+** Last update Fri Apr  7 11:09:29 2017 HartWoom
 */
 
 #include "my.h"
@@ -61,7 +61,7 @@ char	**cut_entry(char *str)
   new[l + 1] = NULL;
   while (i != l + 1)
     {
-      if (!(new[i] = malloc(sizeof(char) * (my_strlen_to_space(str) + 2))))
+      if (!(new[i] = malloc(sizeof(char) * (my_strlen_to_space(str, flag) + 2))))
 	exit(84);
       new[i] = my_str_copy_entry(str, new[i], flag);
       i++;

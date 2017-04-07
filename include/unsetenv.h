@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Apr  3 13:37:55 2017 HartWoom
-** Last update Wed Apr  5 17:44:26 2017 HartWoom
+** Last update Fri Apr  7 10:35:29 2017 HartWoom
 */
 
 #ifndef UNSETENV_H_
@@ -16,6 +16,7 @@
 #include "usefull.h"
 #include "struct.h"
 
-void	remove_one(t_shell *, char **, int, int);
+void	remove_one(t_shell *, int);
+int	str_finder(char *, char *);
 
 #endif
