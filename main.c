@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:05:16 2017 HartWoom
-** Last update Thu Apr  6 22:48:12 2017 HartWoom
+** Last update Fri Apr  7 13:28:53 2017 HartWoom
 */
 
 #include "my.h"
@@ -22,26 +22,19 @@ void	process_loop(t_shell *shell, int tty)
       while ((str = get_next_line(0)))
 	{
 	  if (pre_check(shell, str) == -1)
-	    {
-	      free(str);
-	      return;
-	    }
+	    break;
 	  my_printf("$$> ");
 	  free(str);
 	}
     }
   else
-    {
-      while ((str = get_next_line(0)) != NULL)
-	{
-	  if (pre_check(shell, str) == 1)
-	    {
-	      free(str);
-	      return;
-	    }
-	  free(str);
-	}
-    }
+    while ((str = get_next_line(0)) != NULL)
+      {
+	if (pre_check(shell, str) == 1)
+	  break;
+	free(str);
+      }
+  free(str);
 }
 
 int		main(int ac, char **av, char **env)
@@ -60,6 +53,6 @@ int		main(int ac, char **av, char **env)
     process_loop(shell, 1);
   else
     process_loop(shell, 0);
-  free(shell);
-  return (0);
+  my_free_struct(shell);
+  return (shell->exit_status);
 }

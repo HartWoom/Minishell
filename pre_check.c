@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 18:03:28 2017 HartWoom
-** Last update Thu Apr  6 20:33:37 2017 HartWoom
+** Last update Fri Apr  7 13:27:10 2017 HartWoom
 */
 
 #include "pre_check.h"
@@ -33,6 +33,7 @@ int	pre_check(t_shell *shell, char *str)
       else
 	{
 	  w = wait(&status);
+	  //	  printf("exit status : %d\n", WEXITSTATUS(status));
 	}
       free(full_line);
     }

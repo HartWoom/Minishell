@@ -5,12 +5,13 @@
 ## Login   <antoine.hartwig@epitech.eu>
 ## 
 ## Started on  Mon Mar 20 10:20:30 2017 HartWoom
-## Last update Thu Apr  6 23:28:05 2017 HartWoom
+## Last update Fri Apr  7 13:29:16 2017 HartWoom
 ##
 
 SRC	=	main.c					\
 		pre_check.c				\
 		cut_entry.c				\
+		my_free_struct.c			\
 		usefull/my_strlen_to.c			\
 		usefull/my_put_exit.c			\
 		usefull/my_strcp.c			\
