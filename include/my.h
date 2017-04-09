@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:06:39 2017 HartWoom
-** Last update Fri Apr  7 13:32:49 2017 HartWoom
+** Last update Sun Apr  9 18:38:37 2017 HartWoom
 */
 
 #ifndef MY_H_
@@ -20,7 +20,6 @@
 # endif /* !READ_SIZE */
 
 void	set_struct(t_shell *, char **);
-char	*get_next_line(const int);
 int	my_strlen_to_space(char *, int);
 char	**cut_entry(char *);
 int	pre_check(t_shell *, char *);

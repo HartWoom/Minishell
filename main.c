@@ -5,12 +5,13 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 10:05:16 2017 HartWoom
-** Last update Fri Apr  7 17:33:04 2017 HartWoom
+** Last update Sun Apr  9 18:38:29 2017 HartWoom
 */
 
 #include "my.h"
 #include "struct.h"
 #include "usefull.h"
+#include "gnl.h"
 
 void	process_loop(t_shell *shell, int tty)
 {
@@ -21,7 +22,7 @@ void	process_loop(t_shell *shell, int tty)
       my_printf("$$> ");
       while ((str = get_next_line(0)))
 	{
-	  if (pre_check(shell, str) == -1)
+	  if (pre_check(shell, str) == -2)
 	    break;
 	  my_printf("$$> ");
 	  free(str);

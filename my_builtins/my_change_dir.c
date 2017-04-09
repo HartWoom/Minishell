@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 15:38:23 2017 HartWoom
-** Last update Fri Apr  7 16:14:08 2017 HartWoom
+** Last update Sun Apr  9 14:22:55 2017 HartWoom
 */
 
 #include <unistd.h>
@@ -36,7 +36,7 @@ char	*replace_tild(t_shell *shell, char **full_line)
   return (save);
 }
 
-int	display_correct_error(char **full_line)
+int	display_correct_error(t_shell *shell, char **full_line)
 {
   int	fd;
 
@@ -46,6 +46,7 @@ int	display_correct_error(char **full_line)
     my_printf("%s: No such file or directory.\n", full_line[1]);
   if (fd != -1)
     close(fd);
+  shell->exit_status = 1;
   return (1);
 }
 
@@ -121,7 +122,7 @@ int	my_change_dir(t_shell *shell, char **full_line)
       else if (full_line[1][0] == '~')
 	full_line[1] = replace_tild(shell, full_line);
       if (chdir(full_line[1]) == -1 && full_line[1][0] != '-')
-	display_correct_error(full_line);
+	display_correct_error(shell, full_line);
     }
   if (my_str_cmp(old, getcwd(tmp, 1024)) != 0)
     replace_oldpwd(shell, old);

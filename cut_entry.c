@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 15:32:43 2017 HartWoom
-** Last update Fri Apr  7 11:09:29 2017 HartWoom
+** Last update Sun Apr  9 19:24:40 2017 HartWoom
 */
 
 #include "my.h"
@@ -19,8 +19,13 @@ int	little_epur(char *str)
     i++;
   while (str[i] != '\0')
     {
+      if (str[i] == '|' || str[i] == ';'
+	  || str[i] == '>' || str[i] == '>'
+	  || str[i] == '<')
+	exit(0);
       if ((str[i] == ' ' || str[i] == '\t')
-	  && (str[i + 1] != ' ' && str[i + 1] != '\t' && str[i + 1] != '\0'))
+	  && (str[i + 1] != ' ' && str[i + 1] != '\t'
+	      && str[i + 1] != '\0'))
 	k++;
       i++;
     }
@@ -61,7 +66,8 @@ char	**cut_entry(char *str)
   new[l + 1] = NULL;
   while (i != l + 1)
     {
-      if (!(new[i] = malloc(sizeof(char) * (my_strlen_to_space(str, flag) + 2))))
+      if (!(new[i] = malloc(sizeof(char)
+			    * (my_strlen_to_space(str, flag) + 2))))
 	exit(84);
       new[i] = my_str_copy_entry(str, new[i], flag);
       i++;

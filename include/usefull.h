@@ -5,11 +5,11 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 23 17:09:55 2017 HartWoom
-** Last update Thu Apr  6 23:47:32 2017 HartWoom
+** Last update Sun Apr  9 18:37:22 2017 HartWoom
 */
 
-#ifndef USEFULL_H
-# define USEFULL_H
+#ifndef USEFULL_H_
+# define USEFULL_H_
 
 void    my_putchar(char);
 void    my_putstr(char *);

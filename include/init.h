@@ -5,11 +5,11 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Fri Mar 24 09:53:52 2017 HartWoom
-** Last update Thu Apr  6 20:26:02 2017 HartWoom
+** Last update Sun Apr  9 18:37:07 2017 HartWoom
 */
 
-#ifndef INIT_H
-# define INIT_H
+#ifndef INIT_H_
+# define INIT_H_
 
 #include <stdlib.h>
 #include "struct.h"

@@ -5,11 +5,11 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Thu Mar 30 10:31:20 2017 HartWoom
-** Last update Thu Mar 30 10:33:36 2017 HartWoom
+** Last update Sun Apr  9 18:43:58 2017 HartWoom
 */
 
-#ifndef PRE_CHECK_H
-# define PRE_CHECK_H
+#ifndef PRE_CHECK_H_
+# define PRE_CHECK_H_
 
 #include <sys/types.h>
 #include <sys/wait.h>

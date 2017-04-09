@@ -5,11 +5,11 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Fri Apr  7 13:27:26 2017 HartWoom
-** Last update Fri Apr  7 13:37:25 2017 HartWoom
+** Last update Sun Apr  9 18:47:58 2017 HartWoom
 */
 
-#include "struct.h"
 #include <stdlib.h>
+#include "struct.h"
 
 void	my_free_struct(t_shell *shell)
 {

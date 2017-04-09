@@ -5,7 +5,7 @@
 ## Login   <antoine.hartwig@epitech.eu>
 ## 
 ## Started on  Mon Mar 20 10:20:30 2017 HartWoom
-## Last update Fri Apr  7 13:29:16 2017 HartWoom
+## Last update Sun Apr  9 16:46:09 2017 HartWoom
 ##
 
 SRC	=	main.c					\
@@ -36,7 +36,7 @@ CC	=	gcc
 
 NAME	=	mysh
 
-CFLAGS	=	-Iinclude -W -Wall -Wextra -pedantic -g3
+CFLAGS	=	-Iinclude -W -Wall -Wextra -pedantic
 
 LFLAGS	=	-Llib -lmy -lprintf -lgnl
 

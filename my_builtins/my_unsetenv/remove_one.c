@@ -5,7 +5,7 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Tue Apr  4 17:40:46 2017 HartWoom
-** Last update Fri Apr  7 10:33:00 2017 HartWoom
+** Last update Sun Apr  9 19:01:00 2017 HartWoom
 */
 
 #include "unsetenv.h"
@@ -43,7 +43,8 @@ void	remove_one(t_shell *shell, int k)
     {
       if (i != k)
 	{
-	  if (!(save[i - flag] = malloc(sizeof(char) * (my_strlen(shell->env[i] + 1)))))
+	  if (!(save[i - flag] = malloc(sizeof(char)
+					* (my_strlen(shell->env[i] + 1)))))
 	    exit(84);
 	  save[i - flag] = my_strcp(shell->env[i]);
 	}

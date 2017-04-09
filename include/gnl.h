@@ -6,8 +6,8 @@
 **
 */
 
-#ifndef	__LIBGNL__
-#define	__LIBGNL__
+#ifndef LIBGNL_H_
+# define LIBGNL_H_
 
 char	*get_next_line(int fd);
 char	*get_next_line_dbg(int fd);
