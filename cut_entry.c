@@ -5,27 +5,27 @@
 ** Login   <antoine.hartwig@epitech.eu>
 ** 
 ** Started on  Mon Mar 20 15:32:43 2017 HartWoom
-** Last update Sun Apr  9 19:24:40 2017 HartWoom
+** Last update Wed Apr 12 13:17:50 2017 HartWoom
 */
 
 #include "my.h"
 
-int	little_epur(char *str)
+int		little_epur(char *str, int flag)
 {
-  int	i = 0;
-  int	k = 0;
+  static int	i = 0;
+  int		k = 0;
 
-  while (str[i] == ' ' || str[i] == '\t')
+  if (flag == 0)
+    i = 0;
+  while (str[i] == ' ' || str[i] == '\t' || str[i] == ';')
     i++;
-  while (str[i] != '\0')
+  while (str[i] != '\0' && str[i] != ';')
     {
-      if (str[i] == '|' || str[i] == ';'
-	  || str[i] == '>' || str[i] == '>'
-	  || str[i] == '<')
+      if (str[i] == '|' || str[i] == '<' || str[i] == '>')
 	exit(0);
       if ((str[i] == ' ' || str[i] == '\t')
 	  && (str[i + 1] != ' ' && str[i + 1] != '\t'
-	      && str[i + 1] != '\0'))
+	      && str[i + 1] != '\0' && str[i + 1] != ';'))
 	k++;
       i++;
     }
@@ -40,9 +40,9 @@ char		*my_str_copy_entry(char *src, char *dest, int flag)
   if (flag == 0)
     i = 0;
   j = 0;
-  while (src[i] == ' ' || src[i] == '\t')
+  while (src[i] == ' ' || src[i] == '\t' || src[i] == ';')
     i++;
-  while (src[i] != '\0' && src[i] != ' ' && src[i] != '\t')
+  while (src[i] != '\0' && src[i] != ' ' && src[i] != '\t' && src[i] != ';')
     {
       dest[j] = src[i];
       i++;
@@ -53,14 +53,16 @@ char		*my_str_copy_entry(char *src, char *dest, int flag)
   return (dest);
 }
 
-char	**cut_entry(char *str)
+char	**cut_entry(char *str, int colons)
 {
   char	**new;
   int	i = 0;
   int	l = 0;
   int	flag = 0;
 
-  l = little_epur(str);
+  if (colons == 1)
+    flag = 1;
+  l = little_epur(str, flag);
   if (!(new = malloc(sizeof(char *) * (l + 2))))
     exit(84);
   new[l + 1] = NULL;
