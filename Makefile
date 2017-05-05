@@ -1,11 +1,12 @@
 ##
-## Makefile for shell in /home/hartwoom/Epitech/PSU_2016/PSU_2016_minishell2
+## Makefile for shell in
+## /home/hartwoom/Epitech/PSU_2016/PSU_2016_minishell2
 ## 
 ## Made by HartWoom
 ## Login   <antoine.hartwig@epitech.eu>
 ## 
 ## Started on  Mon Mar 20 10:20:30 2017 HartWoom
-## Last update Wed Apr 12 13:42:26 2017 HartWoom
+## Last update Thu Apr 20 15:18:24 2017 HartWoom
 ##
 
 SRC	=	main.c					\
@@ -36,7 +37,7 @@ CC	=	gcc
 
 NAME	=	mysh
 
-CFLAGS	=	-Iinclude -W -Wall -Wextra -pedantic
+CFLAGS	=	-Iinclude -W -Wall -Wextra -pedantic -g3
 
 LFLAGS	=	-Llib -lmy -lprintf -lgnl
 
